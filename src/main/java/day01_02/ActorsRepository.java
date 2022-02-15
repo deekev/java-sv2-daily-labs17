@@ -1,4 +1,4 @@
-package day01;
+package day01_02;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
