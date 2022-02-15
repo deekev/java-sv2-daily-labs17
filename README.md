@@ -1,1 +1,1 @@
-# java-sv2-daily-labs17
+Konzultáción elhangzó gyakorlati feladatok a 17. héten
