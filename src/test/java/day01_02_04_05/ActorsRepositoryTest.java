@@ -1,4 +1,4 @@
-package day01_02;
+package day01_02_04_05;
 
 import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.mariadb.jdbc.MariaDbDataSource;
 
 import java.sql.SQLException;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ActorsRepositoryTest {
 
@@ -32,7 +35,9 @@ class ActorsRepositoryTest {
 
     @Test
     void testInsert() {
-        actorsRepository.saveActor("John Doe");
+        long id = actorsRepository.saveActor("John Doe");
+        Optional<Actor> actor = actorsRepository.findActorByName("John Doe");
 
+        assertEquals(id, actor.get().getId());
     }
 }
