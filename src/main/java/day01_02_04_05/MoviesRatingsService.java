@@ -17,6 +17,7 @@ public class MoviesRatingsService {
         Optional<Movie> actual = moviesRepository.findMovieByTitle(title);
         if (actual.isPresent()) {
             ratingRepository.insertRating(actual.get().getId(), Arrays.asList(ratings));
+            moviesRepository.fillAverageRating();
         } else {
             throw new IllegalArgumentException("Cannot find movie: " + title);
         }

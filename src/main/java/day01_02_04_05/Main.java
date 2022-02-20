@@ -21,6 +21,7 @@ public class Main {
         }
 
         Flyway flyway = Flyway.configure().dataSource(dataSource).load();
+        flyway.clean();
         flyway.migrate();
 
         ActorsRepository actorsRepository = new ActorsRepository(dataSource);
@@ -49,6 +50,9 @@ public class Main {
         MoviesRatingsService moviesRatingsService = new MoviesRatingsService(moviesRepository, ratingRepository);
 
         moviesRatingsService.addRating("Titanic", 2, 4, 5);
+        moviesRatingsService.addRating("Titanic", 3, 4, 5);
+        moviesRatingsService.addRating("Matrix", 3, 4, 5, 5);
         moviesRatingsService.addRating("Matrix", 2, 4, 5, 6);
+        moviesRatingsService.addRating("Lord Of The Rings", 5, 5, 4, 5);
     }
 }
